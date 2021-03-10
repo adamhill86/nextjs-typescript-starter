@@ -14,7 +14,7 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "isolatedModules": true,
-    "incremental": true,
+    "incremental": false,
     "jsx": "preserve",
     "keyofStringsOnly": true,
     "lib": [
@@ -36,7 +36,7 @@
     "noStrictGenericChecks": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "preserveConstEnums": false,
+    "preserveConstEnums": true,
     "preserveSymlinks": false,
     "preserveWatchOutput": false,
     "removeComments": true,
