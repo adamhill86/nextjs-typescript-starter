@@ -13,6 +13,7 @@ module.exports = {
         'indent': 'off',
         'max-len': ['off', { code: 140, ignoreRegExpLiterals: true, ignoreUrls: true }],
         'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
+        'jsx-quotes': ['warn', 'prefer-single'],
         '@typescript-eslint/indent': ['error', 2],
         // This rule conflicts with no confusing arrow
         '@typescript-eslint/no-extra-parens': 'off',
@@ -33,7 +34,6 @@ module.exports = {
         'react/forbid-component-props': 'off',
         'react/require-default-props': 'off',
         'react-perf/jsx-no-new-object-as-prop': 'off',
-        'jsx-quotes': ['warn', 'prefer-single'],
         '@typescript-eslint/tslint/config': ['error', rules.typescriptEslintTslintConfig({
           'no-default-import': false,
         })],
