@@ -1,19 +1,24 @@
-import Layout from '../../components/layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
-import Head from 'next/head'
-import Date from '../../components/date'
-import utilStyles from '../../styles/utils.module.scss'
-import { GetStaticProps, GetStaticPaths } from 'next'
+/* eslint-disable react/no-danger -- The HTML we're setting is purely from the file system.
+These are my own markdown files and thus should pose no risk for XSS.
+*/
+import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
+
+import Date from '../../components/date';
+import Layout from '../../components/layout';
+import { getAllPostIds, getPostData } from '../../lib/posts';
+
+import utilStyles from '../../styles/utils.module.scss';
 
 export default function Post({
-  postData
+  postData,
 }: {
   postData: {
-    title: string
-    date: string
-    contentHtml: string
-  }
-}) {
+    title: string;
+    date: string;
+    contentHtml: string;
+  };
+}): JSX.Element {
   return (
     <Layout>
       <Head>
@@ -27,22 +32,24 @@ export default function Post({
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>
-  )
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds()
+  const paths = getAllPostIds();
   return {
     paths,
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string)
+  const postData = await getPostData(params?.id as string);
   return {
     props: {
-      postData
-    }
-  }
-}
+      postData,
+    },
+  };
+};
+
+/* eslint-enable react/no-danger */
